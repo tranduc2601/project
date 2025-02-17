@@ -7,7 +7,7 @@
 #define USER_FILE "./user.bin"
 #define ACCOUNT_FILE "./account.bin"
 
-// Hi?n th? màn h?nh ğãng nh?p
+//hien thi login menu
 void loginScreen(const char *role) {
     char email[50], password[50];
     printf("***********************************************\n");
@@ -25,12 +25,12 @@ void loginScreen(const char *role) {
     printf("Login successful! Redirecting to menu...\n");
 }
 
-// Ki?m tra thông tin nh?p vào h?p l?
+// kiem tra thong tin (khong)hop le
 int isValidInput(const char *input, int maxLength) {
     return (strlen(input) > 0 && strlen(input) < maxLength);
 }
 
-// Ki?m tra trùng l?p ngı?i dùng
+//kiem tra trung lap
 int isDuplicateUser(struct User user) {
     FILE *file = fopen(USER_FILE, "rb");
     if (!file) return 0;
@@ -45,7 +45,7 @@ int isDuplicateUser(struct User user) {
     return 0;
 }
 
-// Thêm ngı?i dùng m?i
+//them nguoi dung
 void addUser() {
     struct User user;
     printf("Enter user ID: ");
@@ -81,7 +81,7 @@ void addUser() {
     printf("User added successfully!\n");
 }
 
-// Hi?n th? danh sách ngı?i dùng dı?i d?ng b?ng
+// hien thi danh sach nguoi dung
 void displayUsers() {
     FILE *file = fopen(USER_FILE, "rb");
     if (!file) {
@@ -101,7 +101,7 @@ void displayUsers() {
     fclose(file);
 }
 
-// T?m ki?m ngı?i dùng theo tên
+//tim kiem user theo ten
 void searchUser() {
     char searchName[50];
     printf("Enter the user name to search: ");
